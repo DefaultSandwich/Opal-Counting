@@ -22,6 +22,7 @@ button {
     border-radius: 2em;
     border-width: 0.05em;
     border-style: solid;
+    touch-action: manipulation;
 
 }
 
