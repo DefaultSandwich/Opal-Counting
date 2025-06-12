@@ -6,7 +6,7 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 28em;
+    height: 10em;
     margin: auto;
 
 }
@@ -16,18 +16,18 @@ button {
     justify-content: center;
     display: flex;
     width: 200%;
-    height: 2em;
-    font-size: 10em;
+    height: 3em;
+    font-size: 2em;
 
-    border-radius: 1em;
+    border-radius: 2em;
     border-width: 0.05em;
     border-style: solid;
 
 }
 
 span {
-    font-size: 10em;
-    width: 10em;
+    font-size: 4em;
+    width: 7em;
     text-align: center;
 
 }
