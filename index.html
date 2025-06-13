@@ -3,27 +3,31 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="style.css">
     </style>
     <title>Opal Counter</title>
 </head>
 
 <body>
-    <h1>Opal Counter V1.0.4</h1>
+    <h1>Opal Counter V1.0.5</h1>
     <script>
         let people = 0
-        let evasion = 0
+        let evasion_s = 0
+        let evasion_a = 0
+
     </script>
 
     <div style="height: 10vh;"></div>
 
     <form onclick="document.getElementById('people').innerHTML = people; 
-    document.getElementById('evasion').innerHTML = evasion">
+    document.getElementById('evasion_a').innerHTML = evasion_a;
+        document.getElementById('evasion_s').innerHTML = evasion_s;" onsubmit="return false">
 
 
         <div style=" margin-bottom: 10vh;">
-            <button type="button" onclick="people = 0; evasion = 0">Reset</button>
+            <button type="button" onclick="people = 0; evasion_a = 0;evasion_s = 0">Reset</button>
         </div>
 
         <div>
@@ -32,18 +36,28 @@
             </button>
             <span id="people">0</span>
             <button type="button" style="background-color: royalblue; color: whitesmoke;"
-                onclick=" if (people > 0){ people--}; if (evasion > people){ evasion = people}"> -
+                onclick=" if (people > 0){ people--}; if (evasion_a > people){ evasion_a = people}; if (evasion_s > people){ evasion_s = people}"> -
             </button>
         </div>
 
         <div>
 
 
+            <button type="button" style="background-color: gold; color: black;"
+                onclick=" evasion_a++; people++; if (evasion_a > people){ people = evasion_a}"> + </button>
+            <span id="evasion_a">0</span>
+            <button type="button" style="background-color: gold; color: black;"
+                onclick=" if (evasion_a > 0){ evasion_a--};""> - </button>
+        </div>
+
+        <div>
+
+
+            <button type=" button" style="background-color: red; color: whitesmoke;"
+                onclick=" evasion_s++; people++; if (evasion_s > people){ people = evasion_s}"> + </button>
+            <span id="evasion_s">0</span>
             <button type="button" style="background-color: red; color: whitesmoke;"
-                onclick=" evasion++; people++; if (evasion > people){ people = evasion}"> + </button>
-            <span id="evasion">0</span>
-            <button type="button" style="background-color: red; color: whitesmoke;"
-                onclick=" if (evasion > 0){ evasion--};""> - </button>
+                onclick=" if (evasion_s > 0){ evasion_s--};""> - </button>
         </div>
 
         
