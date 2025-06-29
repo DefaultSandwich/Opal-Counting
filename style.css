@@ -6,7 +6,7 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10em;
+    height: 8em;
     margin: auto;
 
 }
@@ -27,7 +27,7 @@ button {
 }
 
 span {
-    font-size: 4em;
+    font-size: 3em;
     width: 7em;
     text-align: center;
 

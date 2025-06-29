@@ -11,60 +11,112 @@
 </head>
 
 <body>
-    <h1>Opal Counter V1.0.5</h1>
+    <h1>Opal Counter V1.0.6</h1>
     <script>
         let people = 0
-        let evasion_s = 0
-        let evasion_a = 0
+        let adult = []
+        let student = []
 
     </script>
 
-    <div style="height: 10vh;"></div>
+    <div style="height: 1vh;"></div>
 
-    <form onclick="document.getElementById('people').innerHTML = people; 
-    document.getElementById('evasion_a').innerHTML = evasion_a;
-        document.getElementById('evasion_s').innerHTML = evasion_s;" onsubmit="return false">
+    <form onclick="update();" onsubmit="return false">
 
 
-        <div style=" margin-bottom: 10vh;">
-            <button type="button" onclick="people = 0; evasion_a = 0;evasion_s = 0">Reset</button>
+        <div >
+            <button type="button" onclick="restart();">Reset</button>
+        </div>
+
+        <div>
+            <span>Total</span>
+            <span>Evade</span>
+            <span>Taps</span>
+        </div>
+        <div>
+            <span id="adult">0</span>
+            <span id="adult_e">0</span>
+            <span id="adult_t">0</span>
+        </div>
+        <div>
+            <span id="student">0</span>
+            <span id="student_e">0</span>
+            <span id="student_t">0</span>
+        </div>
+        <div>
+            <span id="total">0</span>
+            <span id="total_e">0</span>
+            <span id="total_t">0</span>
         </div>
 
         <div>
 
-            <button type="button" onclick=" people++" style="background-color: royalblue;color: whitesmoke;"> +
+            <button type="button" onclick=" adult.unshift(0) " style="background-color: royalblue;color: whitesmoke;"> A+
             </button>
-            <span id="people">0</span>
+
+            <button type="button" style="background-color: royalblue; color: whitesmoke;" onclick=" adult.shift()">
+                ↺
+            </button>
+
             <button type="button" style="background-color: royalblue; color: whitesmoke;"
-                onclick=" if (people > 0){ people--}; if (evasion_a > people){ evasion_a = people}; if (evasion_s > people){ evasion_s = people}"> -
+                onclick=" adult[adult.indexOf(0)] = 1">
+                -
             </button>
         </div>
 
-        <div>
 
-
-            <button type="button" style="background-color: gold; color: black;"
-                onclick=" evasion_a++; people++; if (evasion_a > people){ people = evasion_a}"> + </button>
-            <span id="evasion_a">0</span>
-            <button type="button" style="background-color: gold; color: black;"
-                onclick=" if (evasion_a > 0){ evasion_a--};""> - </button>
-        </div>
 
         <div>
 
 
-            <button type=" button" style="background-color: red; color: whitesmoke;"
-                onclick=" evasion_s++; people++; if (evasion_s > people){ people = evasion_s}"> + </button>
-            <span id="evasion_s">0</span>
+            <button type=" button" style="background-color: red; color: whitesmoke;" onclick=" student.unshift(0)"> S+
+            </button>
+
+            <button type="button" style="background-color: red; color: whitesmoke;" onclick=" student.shift()">
+                ↺
+            </button>
+
             <button type="button" style="background-color: red; color: whitesmoke;"
-                onclick=" if (evasion_s > 0){ evasion_s--};""> - </button>
+                onclick=" student[student.indexOf(0)] = 1;""> - </button>
         </div>
 
-        
+        <script>
+            function update() {
+                people = adult.length + student.length
+                document.getElementById("total").innerHTML = people
+                document.getElementById("total_e").innerHTML = adult.filter(x => x == 0).length + student.filter(x =>
+                    x == 0).length
+                document.getElementById("total_t").innerHTML = adult.filter(x => x == 1).length + student.filter(x =>
+                    x == 1).length
+
+                document.getElementById("adult").innerHTML = adult.length
+                document.getElementById("adult_e").innerHTML = adult.filter(x => x == 0).length
+                document.getElementById("adult_t").innerHTML = adult.filter(x => x == 1).length
+
+                document.getElementById("student").innerHTML = student.length
+                document.getElementById("student_e").innerHTML = student.filter(x => x == 0).length
+                document.getElementById("student_t").innerHTML = student.filter(x => x == 1).length
+            }
+
+            function restart() {
+                adult = []
+                student = []
+                total = 0
+                console.log("reset")
+            }
+
+
+
+        </script>
+
+
+
+
+
+
 
     </form>
-
-
+    
 </body>
 
 </html>
